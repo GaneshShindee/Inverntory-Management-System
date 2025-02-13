@@ -7,6 +7,35 @@ const cors = require("cors");
 const app = express();
 
 
+
+// Middlewares
+app.use(express.json());
+// app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000", "https://pinvent-app.vercel.app"],
+//     credentials: true,
+//   })
+// );
+
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Routes Middleware
+// app.use("/api/users", userRoute);
+// app.use("/api/products", productRoute);
+// app.use("/api/contactus", contactRoute);
+
+// Routes
+app.get('/api/', (req, res) => {
+    res.send(  'API working!' );
+});
+
+
+// Error Middleware
+// app.use(errorHandler);
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
