@@ -1,4 +1,4 @@
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -23,7 +23,6 @@ app.use(
     credentials: true,
   })
 );
-
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes Middleware
@@ -42,17 +41,20 @@ app.use(errorHandler);
 // Connect to DB and start server
 const PORT = process.env.PORT || 5000;
 
-// Suppress Mongoose warning
-mongoose.set("strictQuery", true);
-
-// Connect to MongoDB
+// MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI) // Fixing missing process.env
   .then(() => {
-    // console.log("MongoDB Connected");
-    app.listen(PORT, () => console.log(`Server Running on port ${PORT}`));
+    console.log("MongoDB Connected");
+    const server = app.listen(PORT, () => 
+      console.log(`Server Running on port ${PORT}`)
+    );
+
+    server.on("error", (err) => {
+      if (err.code === "EADDRINUSE") {
+        console.error(`Port ${PORT} is already in use.`);
+        process.exit(1);
+      }
+    });
   })
   .catch((err) => console.log("MongoDB Connection Error:", err));
