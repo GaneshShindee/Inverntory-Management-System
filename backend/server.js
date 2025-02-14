@@ -32,7 +32,7 @@ app.use("/api/contactus", contactRoute);
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Home Page");
+  res.send("Server is Live Now");
 });
 
 // Error Middleware
