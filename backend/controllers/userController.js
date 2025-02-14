@@ -299,7 +299,7 @@ const resetPassword = asyncHandler(async (req, res) => {
   });
 
   if (!userToken) {
-    res.status(404);
+    res.status(403);
     throw new Error("Invalid or Expired Token");
   }
 
