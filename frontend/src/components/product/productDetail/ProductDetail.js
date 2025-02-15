@@ -51,7 +51,7 @@ const ProductDetail = () => {
                   alt={product.image.fileName}
                 />
               ) : (
-                <p>No image set for this product</p>
+                <p> image is not set for this product</p>
               )}
             </Card>
             <h4>Product Availability: {stockStatus(product.quantity)}</h4>
