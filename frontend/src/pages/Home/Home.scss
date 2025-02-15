@@ -1,11 +1,12 @@
 .home {
-  background-color: #030b6b;
+  background-color:#A89C29;
   min-height: 100vh;
 
   & nav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    color: #fff;
+    // margin-top: 1.5rem;
+    color:#fff;
     & > .logo {
       color: #fff;
     }
@@ -22,15 +23,26 @@
     margin-left: 1rem;
     color: #fff;
   }
+  
+
 }
+.home-links:hover{
+  // background-color: white;
+  color: #E52020;
+}
+
 
 .hero {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 6rem;
+  // margin-right: 1.5rem;
 }
 
 .hero-text {
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
   width: 50%;
   & > * {
     color: #fff;
@@ -45,11 +57,13 @@
 }
 .hero-image {
   width: 50%;
+  margin-left: 5rem;
 }
 @media screen and (max-width: 600px) {
   .hero {
     flex-direction: column;
   }
+
 
   .hero-text {
     display: flex;

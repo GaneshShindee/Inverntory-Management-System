@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://inverntory-management-system.vercel.app/","https://inverntory-management-system-pewl.onrender.com"],
+    origin: [ "https://inverntory-management-system.vercel.app/","https://inverntory-management-system-pewl.onrender.com"],
     credentials: true,
   })
 );
