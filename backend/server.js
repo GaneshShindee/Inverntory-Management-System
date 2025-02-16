@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [ "https://inverntory-management-system.vercel.app/","https://inverntory-management-system-pewl.onrender.com"],
+    origin: ["http://localhost:3000", "https://pinvent-app.vercel.app"],
     credentials: true,
   })
 );
@@ -32,7 +32,7 @@ app.use("/api/contactus", contactRoute);
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Server is Live Now");
+  res.send("Home Page");
 });
 
 // Error Middleware
